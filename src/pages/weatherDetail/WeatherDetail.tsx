@@ -15,10 +15,12 @@ import moment from 'moment';
 
 export const WeatherDetail = () => {
   const { id } = useParams();
-  const transformId = id?.slice(1);
+  const transformId = Number(id?.slice(1));
   const { data, isSuccess } = useGetCityByIdQuery(transformId, {
     refetchOnMountOrArgChange: true,
   });
+
+  console.log(transformId);
 
   return (
     <StyledCard>
@@ -46,10 +48,10 @@ export const WeatherDetail = () => {
 
         <StyledCardContent>
           <Typography variant="h2" color="text.secondary">
-            {Math.round(isSuccess && data.main.temp)}°C
+            {isSuccess && Math.round(data.main.temp)}°C
           </Typography>
           <Typography variant="h5">
-            Feels like {Math.round(isSuccess && data.main.feels_like)}°C
+            Feels like {isSuccess && Math.round(data.main.feels_like)}°C
           </Typography>
         </StyledCardContent>
         <StyledBox

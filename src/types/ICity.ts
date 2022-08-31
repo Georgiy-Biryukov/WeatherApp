@@ -1,4 +1,4 @@
-export interface ICity {
+export type ICity = {
   name: string;
   id: number;
   weather: [{ id: number; main: string; description: string; icon: string }];
@@ -24,9 +24,10 @@ export interface ICity {
   clouds: {
     all: number;
   };
+  dt: number;
   sys: {
     country: string;
     sunrise: number;
     sunset: number;
   };
-}
+};

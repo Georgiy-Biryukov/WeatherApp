@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      trigger(inputValue, true);
+      trigger(inputValue);
       setInputValue('');
     }
   };
